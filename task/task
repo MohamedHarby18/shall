@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main (int argc, char *argv[]){
+	char path[100], dest[100] ,com[], t;
+
+	while (1) {
+		printf("\n Choose an option : \n");
+		printf("1 - Copy file \n");
+		printf("2 - Move file \n");
+		printf("3 - create directory \n");
+		printf("4 - List directory Cotents \n");
+		printf("5 - Remove file \n");
+		printf("6 - Remove directory \n");
+		printf("7 - Exit \n");
+		
+		int c;
+		scanf("%d", &c);
+		t = getchar();
+		
+		switch (c){
+			case 1: //cp 
+				strcpy (com, "cp ");
+				printf("Enter the path of the file \n");
+				gets(path);
+				strcat(com, path);
+				printf("Enter the destination of the file \n");
+				gets(dest);
+				strcat(com, " ");
+				strcat(com, dest);
+				System(com);
+				break;
+				
+			case 2: // mv
+				strcpy (com, "mv ");
+				printf("Enter the path of the file \n");
+				gets(path);
+				strcat(com, path);
+				printf("Enter the destination of the file \n");
+				gets(dest);
+				strcat(com, " ");
+				strcat(com, dest);
+				System(com);
+				break;
+			
+			case 3: //mkdir
+				strcpy (com, "mkdir ");
+				printf("Enter the name of the directory :");
+				gets(path);
+				strcat(com, path);
+				system(com);
+				break;
+				
+			case 4: //ls
+				strcpy(com, "ls ");
+				printf("Enter the directory path (leave empty for current directory): \n)");
+				gets(path);
+				if (strlen(path) > 0) {
+					strcat(com, path);
+				}
+				system(com);
+				break;
+				
+			case 5: // exit
+				exit(0);
+		} 
+		
+	}
+	return 0;
+}
